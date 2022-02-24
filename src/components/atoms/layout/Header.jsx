@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <StyledDiv>
       <StyledLink to="/">HOME</StyledLink>
-      <StyledLink to="">USER</StyledLink>
+      <StyledLink to="/users">USER</StyledLink>
     </StyledDiv>
   );
 };

@@ -4,16 +4,12 @@ import { TextInput } from "../atoms/input/TextInput";
 
 export const SearchInput = () => {
   return (
-    <>
-      <div>
-        <StyledContainer>
-          <TextInput placeholder="検索条件を入力"></TextInput>
-          <StyledButtonWrapper>
-            <SecondaryButton>検索</SecondaryButton>
-          </StyledButtonWrapper>
-        </StyledContainer>
-      </div>
-    </>
+    <StyledContainer>
+      <TextInput placeholder="検索条件を入力"></TextInput>
+      <StyledButtonWrapper>
+        <SecondaryButton>検索</SecondaryButton>
+      </StyledButtonWrapper>
+    </StyledContainer>
   );
 };
 
