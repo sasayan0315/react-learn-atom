@@ -1,3 +1,6 @@
+import { BrowserRouter } from "react-router-dom";
+import { DefaultLayout } from "./components/atoms/templates/DefaultLayout";
+import { HeaderOnly } from "./components/atoms/templates/HeaderOnly";
 import { SearchInput } from "./components/molecules/SearchInput";
 import { UserCard } from "./components/organisms/user/UserCard";
 import "./styles.css";
@@ -12,9 +15,11 @@ export default function App() {
     }
   };
   return (
-    <div>
-      <SearchInput />
-      <UserCard user={user} />
-    </div>
+    <BrowserRouter>
+      <DefaultLayout>
+        <SearchInput />
+        <UserCard user={user} />
+      </DefaultLayout>
+    </BrowserRouter>
   );
 }
