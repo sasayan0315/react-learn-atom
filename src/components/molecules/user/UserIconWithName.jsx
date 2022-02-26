@@ -1,10 +1,12 @@
 import styled from "styled-components";
 export const UserIconWithName = (props) => {
-  const { image, name } = props;
+  const { image, name, isAdmin } = props;
+  console.log(props);
   return (
     <StyledDiv>
       <StyledImg height={160} src={image} alt={name} />
       <StyledNameLabel>{name}</StyledNameLabel>
+      {isAdmin && <button>Edit</button>}
     </StyledDiv>
   );
 };

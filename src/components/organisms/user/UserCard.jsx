@@ -4,10 +4,12 @@ import { UserIconWithName } from "../../molecules/user/UserIconWithName.jsx";
 
 export const UserCard = (props) => {
   const { image, name, tel, company } = props.user;
+  const { isAdmin } = props;
+
   return (
     <>
       <Card>
-        <UserIconWithName image={image} name={name} />
+        <UserIconWithName image={image} name={name} isAdmin={isAdmin} />
         <StyledDl>
           <dt>電話番号</dt>
           <dd>{tel}</dd>
