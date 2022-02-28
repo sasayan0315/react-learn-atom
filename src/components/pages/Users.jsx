@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import { SearchInput } from "../molecules/SearchInput";
 import { UserCard } from "../organisms/user/UserCard";
-import { useContext } from "react";
-import { UserContext } from "../../providers/UserProvider";
 import { SecondaryButton } from "../atoms/buttons/SecondaryButton";
+import { useRecoilState } from "recoil";
+import { userState } from "../../store/userState";
+
 export const Users = () => {
-  const context = useContext(UserContext);
-  const { userInfo, setUserInfo } = context;
+  const [userInfo, setUserInfo] = useRecoilState(userState);
   const { isAdmin } = userInfo ? userInfo : false;
+  console.log(userInfo);
 
   const users = [...Array(10).keys()].map((val) => {
     return {

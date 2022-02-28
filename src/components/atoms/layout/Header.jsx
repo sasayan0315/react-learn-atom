@@ -1,12 +1,12 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { UserContext } from "../../../providers/UserProvider";
+import { useRecoilValue } from "recoil";
+import { userState } from "../../../store/userState";
 
 export const Header = () => {
-  const context = useContext(UserContext);
-  const { isAdmin = false } = context.userInfo ? context.userInfo : {};
-
+  const userInfo = useRecoilValue(userState);
+  const { isAdmin } = userInfo ? userInfo : false;
+  console.log(userInfo);
   return (
     <StyledDiv>
       <StyledLink to="/">HOME</StyledLink>
