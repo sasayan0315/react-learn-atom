@@ -1,10 +1,11 @@
-import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { SearchInput } from "../molecules/SearchInput";
 import { UserCard } from "../organisms/user/UserCard";
+import { useContext } from "react";
+import { UserContext } from "../../providers/UserProvider";
 export const Users = () => {
-  const { state } = useLocation();
-  const isAdmin = state ? state.isAdmin : false;
+  const context = useContext(UserContext);
+  const { isAdmin } = context.userInfo;
 
   const users = [...Array(10).keys()].map((val) => {
     return {

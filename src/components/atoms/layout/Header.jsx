@@ -5,13 +5,13 @@ import { UserContext } from "../../../providers/UserProvider";
 
 export const Header = () => {
   const context = useContext(UserContext);
-  const { contextName } = context;
+  const { isAdmin = false } = context.userInfo ? context.userInfo : {};
 
   return (
     <StyledDiv>
       <StyledLink to="/">HOME</StyledLink>
       <StyledLink to="/users">USER</StyledLink>
-      <p>{`ユーザー名：${contextName}`}</p>
+      <p>{isAdmin ? "管理者" : "通常"}</p>
     </StyledDiv>
   );
 };

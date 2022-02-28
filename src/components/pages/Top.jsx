@@ -1,16 +1,21 @@
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import { UserContext } from "../../providers/UserProvider";
 import { SecondaryButton } from "../atoms/buttons/SecondaryButton";
 
 export const Top = () => {
   const history = useHistory();
+  const context = useContext(UserContext);
+  const { setUserInfo } = context;
   const onClickAdmin = useCallback(() => {
-    history.push({ pathname: "/users", state: { isAdmin: true } });
-  }, [history]);
+    setUserInfo({ isAdmin: true });
+    history.push({ pathname: "/users" });
+  }, [setUserInfo, history]);
   const onClickNormal = useCallback(() => {
-    history.push({ pathname: "/users", state: { isAdmin: false } });
-  }, [history]);
+    setUserInfo({ isAdmin: false });
+    history.push({ pathname: "/users" });
+  }, [setUserInfo, history]);
 
   return (
     <>
