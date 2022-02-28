@@ -1,5 +1,7 @@
+import { memo } from "react";
 import styled from "styled-components";
-export const UserIconWithName = (props) => {
+
+export const UserIconWithName = memo((props) => {
   const { image, name, isAdmin } = props;
   return (
     <StyledDiv>
@@ -8,7 +10,7 @@ export const UserIconWithName = (props) => {
       {isAdmin && <button>Edit</button>}
     </StyledDiv>
   );
-};
+});
 
 const StyledDiv = styled.div`
   text-align: center;

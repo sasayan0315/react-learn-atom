@@ -3,9 +3,11 @@ import { SearchInput } from "../molecules/SearchInput";
 import { UserCard } from "../organisms/user/UserCard";
 import { useContext } from "react";
 import { UserContext } from "../../providers/UserProvider";
+import { SecondaryButton } from "../atoms/buttons/SecondaryButton";
 export const Users = () => {
   const context = useContext(UserContext);
-  const { isAdmin } = context.userInfo;
+  const { userInfo, setUserInfo } = context;
+  const { isAdmin } = userInfo ? userInfo : false;
 
   const users = [...Array(10).keys()].map((val) => {
     return {
@@ -20,11 +22,17 @@ export const Users = () => {
     };
   });
 
+  const onClickSwitch = () => {
+    setUserInfo({ isAdmin: userInfo ? !userInfo.isAdmin : false });
+  };
+
   return (
     <>
       <SContainer>
         <h2>USER PAGE</h2>
         <SearchInput />
+        <br />
+        <SecondaryButton onClick={onClickSwitch}>切り替え</SecondaryButton>
         <SUserArea>
           {users.map((val) => {
             return <UserCard key={val.id} user={val} isAdmin={isAdmin} />;
